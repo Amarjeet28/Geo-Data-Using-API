@@ -21,7 +21,7 @@ class local_activities:
         pass
         
     def read_data(self):
-        InputDf = pd.read_csv('D:/2_Business Dev\Rivigo/DataFromRivigoTeam/Distance Matrix From Google/Missing_Links_Input_4.csv')
+        InputDf = pd.read_csv('<<file path>>/filname.csv')
         return InputDf
         
 class web_based_activities(object):
@@ -35,7 +35,7 @@ class web_based_activities(object):
         destination= self.InputDf['DC'].tolist()  
         
         for i in range(len(origin)):
-                gmaps = gm.Client(key='AIzaSyAGeroWa1MAbuUUYkvLDIKQI8GwoZUZh5A',timeout=None,retry_timeout=380,queries_per_second=9000)
+                gmaps = gm.Client(key='<<Insert Key Here>>',timeout=None,retry_timeout=380,queries_per_second=9000)
                 distance_results = gmaps.distance_matrix(origin[i], destination[i],'driving', region='in')
                 distance_results = pd.DataFrame(distance_results)
                 distance_results.to_csv('D:/2_Business Dev\Rivigo/DataFromRivigoTeam/Distance Matrix From Google/Distances.csv', mode ='a', header = False)
